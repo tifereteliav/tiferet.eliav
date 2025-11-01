@@ -121,7 +121,7 @@
                 פרויקטים וסימולציות AI (אתגרים קליניים)
             </h2>
 
-            <!-- 1. קטגוריה: סימולציות ומשחקים -->
+            <!-- 1. קטגוריה: סימולציות ומשחקים (עכשיו מכיל אקורדיונים ממוקדים) -->
             <div class="mb-6">
                 <div id="simulations_header" onclick="toggleSection('simulations_content', 'simulations_icon')" 
                      class="flex justify-between items-center cursor-pointer p-3 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-b border-gray-700/50 hover:border-indigo-500 transition-colors duration-200">
@@ -133,52 +133,123 @@
                 </div>
                 
                 <!-- תוכן קטגוריה: מוסתר כברירת מחדל -->
-                <div id="simulations_content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 hidden">
+                <div id="simulations_content" class="pt-4 hidden space-y-6">
+
+                    <!-- קטגוריית משנה 1: DKA & HHS (מצבי חירום בסוכרת) -->
+                    <div class="bg-gray-800/30 p-4 rounded-xl border border-red-700/50 shadow-inner shadow-red-900/10">
+                        <!-- כותרת קטגוריית משנה ניתנת ללחיצה -->
+                        <h4 id="dka_hhs_header" onclick="toggleSection('dka_hhs_content', 'dka_hhs_icon')" 
+                            class="text-xl font-bold text-red-300 mb-4 pb-2 border-b border-red-700 flex items-center justify-between cursor-pointer">
+                            <span class="flex items-center">
+                                <i data-lucide="heart-pulse" class="w-5 h-5 ml-2 text-red-400"></i>
+                                DKA & HHS (מצבי חירום בסוכרת)
+                            </span>
+                            <i id="dka_hhs_icon" data-lucide="chevron-down" class="w-5 h-5 text-red-400 rotate-0"></i>
+                        </h4>
+                        <!-- Internal Grid for DKA/HHS items (2 items) - מוסתר כברירת מחדל -->
+                        <div id="dka_hhs_content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 hidden"> 
+                            
+                            <!-- כרטיס: סרטון פתיחה למשחק מצבי חירום בסוכרת -->
+                            <a href="https://www.canva.com/design/DAG3frbbDmo/FD9Qey8uZdTDg7tYcq7QcA/watch?utm_content=DAG3frbbDmo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h052350b6f8" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-red-500">
+                                <div class="flex items-center mb-3">
+                                    <i data-lucide="video" class="w-6 h-6 ml-3 text-red-400"></i>
+                                    <h3 class="text-xl font-semibold text-white">סרטון פתיחה למשחק מצבי חירום בסוכרת</h3>
+                                </div>
+                                <p class="text-sm text-indigo-300">סרטון המציג את תחילת משחק ה-DKA & HHS.</p>
+                            </a>
+
+                            <!-- כרטיס: סימולציית DKA & HHS (המשחק עצמו) -->
+                            <a href="https://dka-hhs-clinical-sim.lovable.app" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-red-500">
+                                <div class="flex items-center mb-3">
+                                    <i data-lucide="activity" class="w-6 h-6 ml-3 text-red-400"></i>
+                                    <h3 class="text-xl font-semibold text-white">סימולציה קלינית: DKA & HHS</h3>
+                                </div>
+                                <p class="text-sm text-indigo-300">סימולציה אינטראקטיבית לתרגול מקרי HHS ו-DKA.</p>
+                            </a>
+                        </div>
+                    </div> <!-- סוף קטגוריית משנה: DKA & HHS -->
                     
-                    <!-- כרטיס: סימולציית DKA & HHS -->
-                    <a href="https://dka-hhs-clinical-sim.lovable.app" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-red-500">
-                        <div class="flex items-center mb-3">
-                            <i data-lucide="activity" class="w-6 h-6 ml-3 text-red-400"></i>
-                            <h3 class="text-xl font-semibold text-white">סימולציה קלינית: DKA & HHS</h3>
-                        </div>
-                        <p class="text-sm text-indigo-300">סימולציה אינטראקטיבית לתרגול מקרי HHS ו-DKA.</p>
-                    </a>
-                    
-                    <!-- כרטיס: סרטון פתיחה למשחק כף רגל סוכרתית -->
-                    <a href="https://www.canva.com/design/DAG3fXL_CrU/8H-jAOqsdb0J3M1f0tGxhQ/watch?utm_content=DAG3fXL_CrU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb976a209b2" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-blue-500">
-                        <div class="flex items-center mb-3">
-                            <i data-lucide="video" class="w-6 h-6 ml-3 text-blue-400"></i>
-                            <h3 class="text-xl font-semibold text-white">סרטון פתיחה למשחק כף רגל סוכרתית</h3>
-                        </div>
-                        <p class="text-sm text-indigo-300">מבוא ויזואלי למשחק "הצילו את כף הרגל".</p>
-                    </a>
+                    <!-- קטגוריית משנה 2: כף רגל סוכרתית -->
+                    <div class="bg-gray-800/30 p-4 rounded-xl border border-blue-700/50 shadow-inner shadow-blue-900/10">
+                        <!-- כותרת קטגוריית משנה ניתנת ללחיצה -->
+                        <h4 id="diabetic_foot_header" onclick="toggleSection('diabetic_foot_content', 'diabetic_foot_icon')" 
+                            class="text-xl font-bold text-blue-300 mb-4 pb-2 border-b border-blue-700 flex items-center justify-between cursor-pointer">
+                            <span class="flex items-center">
+                                <i data-lucide="footprints" class="w-5 h-5 ml-2 text-blue-400"></i>
+                                כף רגל סוכרתית
+                            </span>
+                            <i id="diabetic_foot_icon" data-lucide="chevron-down" class="w-5 h-5 text-blue-400 rotate-0"></i>
+                        </h4>
+                        <!-- Content for Diabetic Foot (Hidden by default) -->
+                        <div id="diabetic_foot_content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 hidden">
+                            
+                            <!-- כרטיס: סרטון פתיחה למשחק כף רגל סוכרתית (מוזז לכאן) -->
+                            <a href="https://www.canva.com/design/DAG3fXL_CrU/8H-jAOqsdb0J3M1f0tGxhQ/watch?utm_content=DAG3fXL_CrU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb976a209b2" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-blue-500">
+                                <div class="flex items-center mb-3">
+                                    <i data-lucide="video" class="w-6 h-6 ml-3 text-blue-400"></i>
+                                    <h3 class="text-xl font-semibold text-white">סרטון פתיחה למשחק כף רגל סוכרתית</h3>
+                                </div>
+                                <p class="text-sm text-indigo-300">מבוא ויזואלי למשחק "הצילו את כף הרגל".</p>
+                            </a>
 
-                    <!-- כרטיס: משחק הצילו את כף הרגל -->
-                    <a href="https://foot-care-champion-game.lovable.app" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-indigo-500">
-                        <div class="flex items-center mb-3">
-                            <i data-lucide="footprints" class="w-6 h-6 ml-3 text-indigo-400"></i>
-                            <h3 class="text-xl font-semibold text-white">משחק: הצילו את כף הרגל</h3>
+                            <!-- כרטיס: משחק הצילו את כף הרגל (מוזז לכאן) -->
+                            <a href="https://foot-care-champion-game.lovable.app" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-indigo-500">
+                                <div class="flex items-center mb-3">
+                                    <i data-lucide="footprints" class="w-6 h-6 ml-3 text-indigo-400"></i>
+                                    <h3 class="text-xl font-semibold text-white">משחק: הצילו את כף הרגל</h3>
+                                </div>
+                                <p class="text-sm text-indigo-300">משחק אינטראקטיבי ללימוד טיפול ומניעת פצעי כף רגל סוכרתית.</p>
+                            </a>
                         </div>
-                        <p class="text-sm text-indigo-300">משחק אינטראקטיבי ללימוד טיפול ומניעת פצעי כף רגל סוכרתית.</p>
-                    </a>
+                    </div> <!-- סוף קטגוריית משנה: כף רגל סוכרתית -->
 
-                    <!-- כרטיס: אתגר אבחון הסוכרת -->
-                    <a href="https://www.canva.com/design/DAGqEw-uB6M/hRGfSFRZcNrP8OF-twRGTg/view?utm_content=DAGqEw-uB6M&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd2ed3668f0" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-purple-500">
-                        <div class="flex items-center mb-3">
-                            <i data-lucide="pill" class="w-6 h-6 ml-3 text-yellow-400"></i>
-                            <h3 class="text-xl font-semibold text-white">אתגר אבחון הסוכרת</h3>
-                        </div>
-                        <p class="text-sm text-indigo-300">משימה אינטראקטיבית לשיפור מיומנויות אבחון סוכרת.</p>
-                    </a>
+                    <!-- קטגוריית משנה 3: אתגר אבחון הסוכרת (חדש) -->
+                    <div class="bg-gray-800/30 p-4 rounded-xl border border-yellow-700/50 shadow-inner shadow-yellow-900/10">
+                        <!-- כותרת קטגוריית משנה ניתנת ללחיצה -->
+                        <h4 id="diagnosis_challenge_header" onclick="toggleSection('diagnosis_challenge_content', 'diagnosis_challenge_icon')" 
+                            class="text-xl font-bold text-yellow-300 mb-4 pb-2 border-b border-yellow-700 flex items-center justify-between cursor-pointer">
+                            <span class="flex items-center">
+                                <i data-lucide="pill" class="w-5 h-5 ml-2 text-yellow-400"></i>
+                                אתגר אבחון הסוכרת
+                            </span>
+                            <i id="diagnosis_challenge_icon" data-lucide="chevron-down" class="w-5 h-5 text-yellow-400 rotate-0"></i>
+                        </h4>
+                        <!-- Content for Diagnosis Challenge (Hidden by default) -->
+                        <div id="diagnosis_challenge_content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 hidden">
+                            
+                            <!-- כרטיס: סרטון פתיחה לאתגר אבחון הסוכרת (חדש) -->
+                            <a href="https://www.canva.com/design/DAG3frPWn1k/7jzBbSKtRsrkio-NbruU-g/watch?utm_content=DAG3frPWn1k&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h085fde5e59" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-yellow-500">
+                                <div class="flex items-center mb-3">
+                                    <i data-lucide="video" class="w-6 h-6 ml-3 text-yellow-400"></i>
+                                    <h3 class="text-xl font-semibold text-white">סרטון פתיחה לאתגר אבחון הסוכרת</h3>
+                                </div>
+                                <p class="text-sm text-indigo-300">מבוא ויזואלי לאתגר האבחון.</p>
+                            </a>
 
-                    <!-- כרטיס: זיהוי סימפטומים של היפוגליקמיה -->
-                    <a href="https://hypoglycemia3.vercel.app" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-orange-500">
-                        <div class="flex items-center mb-3">
-                            <i data-lucide="droplet" class="w-6 h-6 ml-3 text-orange-400"></i>
-                            <h3 class="text-xl font-semibold text-white">זיהוי סימפטומים של היפוגליקמיה</h3>
+                            <!-- כרטיס: אתגר אבחון הסוכרת (המשחק עצמו - מוזז לכאן) -->
+                            <a href="https://www.canva.com/design/DAGqEw-uB6M/hRGfSFRZcNrP8OF-twRGTg/view?utm_content=DAGqEw-uB6M&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd2ed3668f0" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-purple-500">
+                                <div class="flex items-center mb-3">
+                                    <i data-lucide="pill" class="w-6 h-6 ml-3 text-yellow-400"></i>
+                                    <h3 class="text-xl font-semibold text-white">אתגר אבחון הסוכרת</h3>
+                                </div>
+                                <p class="text-sm text-indigo-300">משימה אינטראקטיבית לשיפור מיומנויות אבחון סוכרת.</p>
+                            </a>
                         </div>
-                        <p class="text-sm text-indigo-300">משחק אינטראקטיבי לזיהוי סימפטומים המתרחשים במצב של היפוגליקמיה.</p>
-                    </a>
+                    </div> <!-- סוף קטגוריית משנה: אתגר אבחון הסוכרת -->
+
+
+                    <!-- אתגרים שאינם משתייכים לאקורדיון (כעת רק היפוגליקמיה) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+                        
+                        <!-- כרטיס: זיהוי סימפטומים של היפוגליקמיה (נשאר) -->
+                        <a href="https://hypoglycemia3.vercel.app" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-orange-500">
+                            <div class="flex items-center mb-3">
+                                <i data-lucide="droplet" class="w-6 h-6 ml-3 text-orange-400"></i>
+                                <h3 class="text-xl font-semibold text-white">זיהוי סימפטומים של היפוגליקמיה</h3>
+                            </div>
+                            <p class="text-sm text-indigo-300">משחק אינטראקטיבי לזיהוי סימפטומים המתרחשים במצב של היפוגליקמיה.</p>
+                        </a>
+                    </div>
                 </div>
             </div>
 
