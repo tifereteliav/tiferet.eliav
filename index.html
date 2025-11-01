@@ -114,14 +114,57 @@
             </div>
         </header>
 
-        <!-- קטע 1: פרויקטים וסימולציות AI (עם אקורדיון) -->
+        <!-- קטע 1: תוכן קליני ולימודי -->
         <section class="mb-16 p-6 rounded-3xl bg-gray-900/40 border border-indigo-700/50 backdrop-blur-md shadow-2xl shadow-indigo-900/20">
             <h2 class="text-3xl font-bold mb-8 pb-3 border-b border-indigo-600 flex items-center section-title">
                 <i data-lucide="sparkles" class="w-7 h-7 ml-3 text-purple-400"></i>
-                פרויקטים וסימולציות AI (אתגרים קליניים)
+                תוכן קליני ולימודי שפותח בעזרת כלי AI
             </h2>
 
-            <!-- 1. קטגוריה: סימולציות ומשחקים (עכשיו מכיל אקורדיונים ממוקדים) -->
+            <!-- 1. קטגוריה: אחות מומחית קלינית בסוכרת (הועבר לכאן) -->
+            <div class="mb-6">
+                <div id="nurse_expert_header" onclick="toggleSection('nurse_expert_content', 'nurse_expert_icon')" 
+                     class="flex justify-between items-center cursor-pointer p-3 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-b border-gray-700/50 hover:border-indigo-500 transition-colors duration-200">
+                    <h3 class="text-2xl font-semibold text-indigo-300 flex items-center">
+                        <i data-lucide="award" class="w-6 h-6 ml-3 text-teal-300"></i>
+                        אחות מומחית קלינית בסוכרת
+                    </h3>
+                    <i id="nurse_expert_icon" data-lucide="chevron-down" class="w-6 h-6 text-indigo-400 rotate-0"></i>
+                </div>
+                
+                <!-- תוכן קטגוריה: מוסתר כברירת מחדל -->
+                <div id="nurse_expert_content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 hidden">
+                    
+                    <!-- כרטיס: אחות מומחית קלינית בסוכרת (מצגת) -->
+                    <a href="https://www.canva.com/design/DAGnTkE6kEI/ASaOY3t-M8XIIU-zgGbg-w/view?utm_content=DAGnTkE6kEI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h86dfd3e9f0" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-purple-500">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="square-stack" class="w-6 h-6 ml-3 text-green-400"></i>
+                            <h3 class="text-xl font-semibold text-white">אחות מומחית קלינית בסוכרת</h3>
+                        </div>
+                        <p class="text-sm text-indigo-300">מצגת מולטימדיה על תפקיד האחות המומחית הקלינית בסוכרת.</p>
+                    </a>
+
+                    <!-- כרטיס: שיר אחיות מומחיות בסוכרת -->
+                    <a href="https://www.canva.com/design/DAGaNsWUQqU/k4gppG-rIPD3eP5Fmu0JkA/watch?utm_content=DAGaNsWUQqU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h302daa8c24" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-purple-500">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="music" class="w-6 h-6 ml-3 text-yellow-400"></i>
+                            <h3 class="text-xl font-semibold text-white">שיר אחיות מומחיות בסוכרת</h3>
+                        </div>
+                        <p class="text-sm text-indigo-300">סרטון אודיו-ויזואלי מיוחד המוקדש לאחיות מומחיות בסוכרת.</p>
+                    </a>
+
+                    <!-- כרטיס: סרטון פרסום להגברת מודעות לתפקיד האחות המומחית בסוכרת (ללא תיאור) -->
+                    <a href="https://www.canva.com/design/DAG3fMojWEo/BpJq-G0B9OxV-93lunvAjQ/watch?utm_content=DAG3fMojWEo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h65c6fa3487" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-teal-500">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="megaphone" class="w-6 h-6 ml-3 text-teal-400"></i>
+                            <h3 class="text-xl font-semibold text-white">סרטון פרסום להגברת מודעות לתפקיד האחות המומחית בסוכרת</h3>
+                        </div>
+                        <!-- שורת התיאור הוסרה -->
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. קטגוריה: סימולציות ומשחקים (עכשיו מכיל אקורדיונים ממוקדים) -->
             <div class="mb-6">
                 <div id="simulations_header" onclick="toggleSection('simulations_content', 'simulations_icon')" 
                      class="flex justify-between items-center cursor-pointer p-3 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-b border-gray-700/50 hover:border-indigo-500 transition-colors duration-200">
@@ -253,56 +296,13 @@
                 </div>
             </div>
 
-            <!-- 2. קטגוריה: אחות מומחית קלינית בסוכרת -->
-            <div class="mb-6">
-                <div id="nurse_expert_header" onclick="toggleSection('nurse_expert_content', 'nurse_expert_icon')" 
-                     class="flex justify-between items-center cursor-pointer p-3 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-b border-gray-700/50 hover:border-indigo-500 transition-colors duration-200">
-                    <h3 class="text-2xl font-semibold text-indigo-300 flex items-center">
-                        <i data-lucide="award" class="w-6 h-6 ml-3 text-teal-300"></i>
-                        אחות מומחית קלינית בסוכרת
-                    </h3>
-                    <i id="nurse_expert_icon" data-lucide="chevron-down" class="w-6 h-6 text-indigo-400 rotate-0"></i>
-                </div>
-                
-                <!-- תוכן קטגוריה: מוסתר כברירת מחדל -->
-                <div id="nurse_expert_content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 hidden">
-                    
-                    <!-- כרטיס: אחות מומחית קלינית בסוכרת (מצגת) -->
-                    <a href="https://www.canva.com/design/DAGnTkE6kEI/ASaOY3t-M8XIIU-zgGbg-w/view?utm_content=DAGnTkE6kEI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h86dfd3e9f0" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-purple-500">
-                        <div class="flex items-center mb-3">
-                            <i data-lucide="square-stack" class="w-6 h-6 ml-3 text-green-400"></i>
-                            <h3 class="text-xl font-semibold text-white">אחות מומחית קלינית בסוכרת</h3>
-                        </div>
-                        <p class="text-sm text-indigo-300">מצגת מולטימדיה על תפקיד האחות המומחית הקלינית בסוכרת.</p>
-                    </a>
-
-                    <!-- כרטיס: שיר אחיות מומחיות בסוכרת -->
-                    <a href="https://www.canva.com/design/DAGaNsWUQqU/k4gppG-rIPD3eP5Fmu0JkA/watch?utm_content=DAGaNsWUQqU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h302daa8c24" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-purple-500">
-                        <div class="flex items-center mb-3">
-                            <i data-lucide="music" class="w-6 h-6 ml-3 text-yellow-400"></i>
-                            <h3 class="text-xl font-semibold text-white">שיר אחיות מומחיות בסוכרת</h3>
-                        </div>
-                        <p class="text-sm text-indigo-300">סרטון אודיו-ויזואלי מיוחד המוקדש לאחיות מומחיות בסוכרת.</p>
-                    </a>
-
-                    <!-- כרטיס: סרטון פרסום להגברת מודעות לתפקיד האחות המומחית בסוכרת (ללא תיאור) -->
-                    <a href="https://www.canva.com/design/DAG3fMojWEo/BpJq-G0B9OxV-93lunvAjQ/watch?utm_content=DAG3fMojWEo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h65c6fa3487" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-teal-500">
-                        <div class="flex items-center mb-3">
-                            <i data-lucide="megaphone" class="w-6 h-6 ml-3 text-teal-400"></i>
-                            <h3 class="text-xl font-semibold text-white">סרטון פרסום להגברת מודעות לתפקיד האחות המומחית בסוכרת</h3>
-                        </div>
-                        <!-- שורת התיאור הוסרה -->
-                    </a>
-                </div>
-            </div>
-
-            <!-- 3. קטגוריה: מצגות לימודיות -->
+            <!-- 3. קטגוריה: מצגות וידיאו לימודיות (שם שונה) -->
             <div class="mb-6">
                 <div id="presentations_header" onclick="toggleSection('presentations_content', 'presentations_icon')" 
                      class="flex justify-between items-center cursor-pointer p-3 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-b border-gray-700/50 hover:border-indigo-500 transition-colors duration-200">
                     <h3 class="text-2xl font-semibold text-indigo-300 flex items-center">
                         <i data-lucide="presentation" class="w-6 h-6 ml-3 text-blue-300"></i>
-                        מצגות לימודיות
+                        מצגות וידיאו לימודיות
                     </h3>
                     <i id="presentations_icon" data-lucide="chevron-down" class="w-6 h-6 text-indigo-400 rotate-0"></i>
                 </div>
@@ -455,7 +455,7 @@
         <section class="p-6 rounded-3xl bg-gray-900/40 border border-indigo-700/50 backdrop-blur-md shadow-2xl shadow-indigo-900/20">
             <h2 class="text-3xl font-bold mb-8 pb-3 border-b border-indigo-600 flex items-center section-title">
                 <i data-lucide="tool" class="w-7 h-7 ml-3 text-cyan-400"></i>
-                כלי בינה מלאכותית מומלצים
+                קישורים לכלי AI מומלצים
             </h2>
 
             <!-- רשת גמישה (5 עמודות בדסקטופ) -->
