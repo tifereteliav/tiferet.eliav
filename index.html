@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         /* ------------------------------------------------ */
-        /* CSS גלובלי ורקע דינאמי */
+        /* CSS גלובלי ורקע דינאמי (אפקט ריחוף חדש) */
         /* ------------------------------------------------ */
 
         :root {
@@ -21,12 +21,17 @@
             --darker-bg: #01040a;
         }
 
-        /* הגדרת אנימציה לריחוף מעגלי עדין (לאובייקטים) */
-        @keyframes subtle-float {
-            0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
-            33% { transform: translate(30px, -20px) scale(1.05); opacity: 0.7; }
-            66% { transform: translate(-10px, 15px) scale(1.02); opacity: 0.8; }
-            100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+        /* הגדרת אנימציה לתנועה עדינה ובהירה */
+        @keyframes dynamic-float {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+            50% { transform: translate(50px, -40px) scale(1.05); opacity: 0.9; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+        }
+
+        @keyframes dynamic-float-reverse {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+            50% { transform: translate(-40px, 30px) scale(1.05); opacity: 0.85; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
         }
 
         /* הגדרת פונט Inter כברירת מחדל ורקע אסתטי */
@@ -35,56 +40,54 @@
             background-color: var(--dark-bg);
             color: #E0E7FF;
             line-height: 1.75;
-            overflow-x: hidden; /* מונע גלילה אופקית מהאלמנטים המרחפים */
+            overflow-x: hidden;
             position: relative;
-        }
-
-        /* הוספת כתם אור מרחף (אובייקט 1: כחול-סגול) */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -150px; /* מתחיל קרוב יותר לפינה */
-            left: -150px;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.3) 0%, transparent 70%); 
-            pointer-events: none;
-            z-index: -1;
-            animation: subtle-float 40s ease-in-out infinite alternate;
-        }
-
-        /* הוספת כתם אור מרחף (אובייקט 2: סגול-עמוק) */
-        body::after {
-            content: '';
-            position: fixed;
-            bottom: -150px; /* מתחיל קרוב יותר לפינה */
-            right: -150px;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle at 50% 50%, rgba(147, 51, 234, 0.25) 0%, transparent 70%); 
-            pointer-events: none;
-            z-index: -1;
-            animation: subtle-float 35s ease-in-out infinite reverse; /* כיוון הפוך */
+            /* הסרת כל האפקטים הקודמים מ-body */
         }
         
-        /* הוספת כתם אור קטן יותר (אובייקט 3: ציאן/טורקיז - להוספת עומק) */
-        .max-w-4xl.mx-auto.px-4.py-12.md\:py-20::before {
+        /* שכבת הרקע הדינאמית - מופרדת מהתוכן */
+        .dynamic-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* מוודא שהאובייקטים מאחורי התוכן הראשי */
+            overflow: hidden;
+        }
+        
+        /* הוספת כתם אור מרחף (אובייקט 1: בהיר כחול/סגול) */
+        .dynamic-background::before {
             content: '';
             position: absolute;
-            top: 50%;
-            right: 50%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 70%); 
+            top: 10%; 
+            left: 5%;
+            width: 450px;
+            height: 450px;
+            /* צבע בהיר ועדין */
+            background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.4) 0%, transparent 60%); 
+            filter: blur(80px); /* טשטוש חזק */
             pointer-events: none;
-            z-index: -1;
-            transform: translate(50%, -50%); /* ממקם במרכז המיכל הראשי */
-            animation: subtle-float 25s linear infinite; /* תנועה רציפה יותר */
-            filter: blur(20px); /* טשטוש נוסף */
+            animation: dynamic-float 45s ease-in-out infinite alternate;
+        }
+
+        /* הוספת כתם אור מרחף (אובייקט 2: בהיר ציאן/טורקיז) */
+        .dynamic-background::after {
+            content: '';
+            position: absolute;
+            bottom: 15%; 
+            right: 10%;
+            width: 550px;
+            height: 550px;
+            /* צבע בהיר ועדין */
+            background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.35) 0%, transparent 65%); 
+            filter: blur(100px); 
+            pointer-events: none;
+            animation: dynamic-float-reverse 50s ease-in-out infinite alternate; 
         }
         
         /* ------------------------------------------------ */
-        /* אלמנטים פנימיים וכרטיסים */
+        /* אלמנטים פנימיים וכרטיסים (ללא שינוי, רק העתקה) */
         /* ------------------------------------------------ */
         
         /* סגנון כללי לכרטיסים (הצללה ומעבר) */
@@ -128,7 +131,10 @@
 </head>
 <body class="min-h-screen antialiased">
 
-    <!-- מיכל ראשי ומרוכז (הוספת position:relative לטובת הוספת כתם אור פנימי) -->
+    <!-- אלמנט חדש שמכיל את הרקע הדינאמי המרחף, ללא השפעה על התוכן -->
+    <div class="dynamic-background"></div>
+
+    <!-- מיכל ראשי ומרוכז (התוכן נשאר יציב לחלוטין) -->
     <div class="max-w-4xl mx-auto px-4 py-12 md:py-20 relative">
 
         <!-- כותרת ראשית ופרטי קשר (Hero Section) -->
