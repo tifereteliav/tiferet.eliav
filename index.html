@@ -9,33 +9,101 @@
     <!-- טעינת אייקונים של Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
+        /* ------------------------------------------------ */
+        /* CSS גלובלי ורקע דינאמי */
+        /* ------------------------------------------------ */
+
+        :root {
+            --primary-blue: #6366F1; /* Indigo-500 */
+            --primary-purple: #9333EA; /* Purple-600 */
+            --primary-cyan: #06B6D4; /* Cyan-500 */
+            --dark-bg: #040816;
+            --darker-bg: #01040a;
+        }
+
+        /* הגדרת אנימציה לריחוף מעגלי עדין (לאובייקטים) */
+        @keyframes subtle-float {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+            33% { transform: translate(30px, -20px) scale(1.05); opacity: 0.7; }
+            66% { transform: translate(-10px, 15px) scale(1.02); opacity: 0.8; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+        }
+
         /* הגדרת פונט Inter כברירת מחדל ורקע אסתטי */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #040816; /* רקע כהה מאוד (כחול-שחור) */
-            color: #E0E7FF; /* טקסט בהיר */
+            background-color: var(--dark-bg);
+            color: #E0E7FF;
             line-height: 1.75;
-            /* רקע עם אפקט חלל עדין */
-            background-image: radial-gradient(at 0% 0%, #1c0050 0%, transparent 50%), 
-                              radial-gradient(at 100% 100%, #150030 0%, transparent 50%);
+            overflow-x: hidden; /* מונע גלילה אופקית מהאלמנטים המרחפים */
+            position: relative;
         }
 
+        /* הוספת כתם אור מרחף (אובייקט 1: כחול-סגול) */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -150px; /* מתחיל קרוב יותר לפינה */
+            left: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.3) 0%, transparent 70%); 
+            pointer-events: none;
+            z-index: -1;
+            animation: subtle-float 40s ease-in-out infinite alternate;
+        }
+
+        /* הוספת כתם אור מרחף (אובייקט 2: סגול-עמוק) */
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -150px; /* מתחיל קרוב יותר לפינה */
+            right: -150px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle at 50% 50%, rgba(147, 51, 234, 0.25) 0%, transparent 70%); 
+            pointer-events: none;
+            z-index: -1;
+            animation: subtle-float 35s ease-in-out infinite reverse; /* כיוון הפוך */
+        }
+        
+        /* הוספת כתם אור קטן יותר (אובייקט 3: ציאן/טורקיז - להוספת עומק) */
+        .max-w-4xl.mx-auto.px-4.py-12.md\:py-20::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 70%); 
+            pointer-events: none;
+            z-index: -1;
+            transform: translate(50%, -50%); /* ממקם במרכז המיכל הראשי */
+            animation: subtle-float 25s linear infinite; /* תנועה רציפה יותר */
+            filter: blur(20px); /* טשטוש נוסף */
+        }
+        
+        /* ------------------------------------------------ */
+        /* אלמנטים פנימיים וכרטיסים */
+        /* ------------------------------------------------ */
+        
         /* סגנון כללי לכרטיסים (הצללה ומעבר) */
         .card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             transform: scale(1);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+            /* שמירה על צל עמוק */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
             border: 1px solid transparent; 
         }
         .card:hover {
             transform: translateY(-4px) scale(1.02); 
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
-            border-color: #6366F1; /* גבול הדגשה כחול-סגול */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 8px 10px -6px rgba(0, 0, 0, 0.6);
+            border-color: var(--primary-blue); /* גבול הדגשה כחול-סגול */
         }
 
         /* סגנון כותרות סעיפים עם אפקט זוהר */
         .section-title {
-            text-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+            text-shadow: 0 0 10px rgba(99, 102, 241, 0.7);
         }
         
         /* סגנון לאייקוני האקורדיון */
@@ -48,20 +116,20 @@
             transition: transform 0.3s ease;
         }
         
-        /* סגנון מותאם אישית לטקסט TikTok (אפקט צל צבעוני) */
+        /* סגנון מותאם אישית לטקסט TikTok */
         .tiktok-icon-text {
             font-size: 0.75rem;
             font-weight: 900;
             line-height: 1;
-            text-shadow: -1px -1px 0 #00f2ea, 1px 1px 0 #ff0050; /* צל כחול וורוד */
+            text-shadow: -1px -1px 0 #00f2ea, 1px 1px 0 #ff0050; 
             padding: 3px; 
         }
     </style>
 </head>
 <body class="min-h-screen antialiased">
 
-    <!-- מיכל ראשי ומרוכז -->
-    <div class="max-w-4xl mx-auto px-4 py-12 md:py-20">
+    <!-- מיכל ראשי ומרוכז (הוספת position:relative לטובת הוספת כתם אור פנימי) -->
+    <div class="max-w-4xl mx-auto px-4 py-12 md:py-20 relative">
 
         <!-- כותרת ראשית ופרטי קשר (Hero Section) -->
         <header class="text-center mb-16">
@@ -135,8 +203,17 @@
                 <!-- תוכן קטגוריה: מוסתר כברירת מחדל -->
                 <div id="nurse_expert_content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 hidden">
                     
+                    <!-- כרטיס: סרטון פרסום להגברת מודעות לתפקיד האחות המומחית בסוכרת (מועבר לראש הרשימה) -->
+                    <a href="https://www.canva.com/design/DAG3fMojWEo/BpJq-G0B9OxV-93lunvAjQ/watch?utm_content=DAG3fMojWEo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h65c6fa3487" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-teal-500">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="megaphone" class="w-6 h-6 ml-3 text-teal-400"></i>
+                            <h3 class="text-xl font-semibold text-white">סרטון פרסום להגברת מודעות לתפקיד האחות המומחית בסוכרת</h3>
+                        </div>
+                        <!-- שורת התיאור הוסרה -->
+                    </a>
+                    
                     <!-- כרטיס: אחות מומחית קלינית בסוכרת (מצגת) -->
-                    <a href="https://www.canva.com/design/DAGnTkE6kEI/ASaOY3t-M8XIIU-zgGbg-w/view?utm_content=DAGnTkE6kEI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h86dfd3e9f0" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-purple-500">
+                    <a href="https://www.canva.com/design/DAGnu0a-n4w/q4WXr0a4QQGeLK9sDnaJYQ/view?utm_content=DAGnu0a-n4w&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2eead23f1f" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-purple-500">
                         <div class="flex items-center mb-3">
                             <i data-lucide="square-stack" class="w-6 h-6 ml-3 text-green-400"></i>
                             <h3 class="text-xl font-semibold text-white">אחות מומחית קלינית בסוכרת</h3>
@@ -151,15 +228,6 @@
                             <h3 class="text-xl font-semibold text-white">שיר אחיות מומחיות בסוכרת</h3>
                         </div>
                         <p class="text-sm text-indigo-300">סרטון אודיו-ויזואלי מיוחד המוקדש לאחיות מומחיות בסוכרת.</p>
-                    </a>
-
-                    <!-- כרטיס: סרטון פרסום להגברת מודעות לתפקיד האחות המומחית בסוכרת (ללא תיאור) -->
-                    <a href="https://www.canva.com/design/DAG3fMojWEo/BpJq-G0B9OxV-93lunvAjQ/watch?utm_content=DAG3fMojWEo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h65c6fa3487" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-teal-500">
-                        <div class="flex items-center mb-3">
-                            <i data-lucide="megaphone" class="w-6 h-6 ml-3 text-teal-400"></i>
-                            <h3 class="text-xl font-semibold text-white">סרטון פרסום להגברת מודעות לתפקיד האחות המומחית בסוכרת</h3>
-                        </div>
-                        <!-- שורת התיאור הוסרה -->
                     </a>
                 </div>
             </div>
@@ -371,8 +439,8 @@
                         <p class="text-sm text-indigo-300">בדגש על סוכרת סוג 2</p>
                     </a>
                     
-                    <!-- כרטיס: Libre 2 Plus (קשר ל-AI ו-CGM) -->
-                    <a href="https://www.canva.com/design/DAG3fWF-2FU/3i_kOEKyBUqrGaOxqdfMpw/watch?utm_content=DAG3fWF-2FU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h64104ca345" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-green-500">
+                    <!-- כרטיס: Libre 2 Plus (קשר ל-AI ו-CGM) - הקישור עודכן כאן -->
+                    <a href="https://www.canva.com/design/DAG2YtWcHh8/3xHB4cnVjYb5cwbt1CMi3g/watch?utm_content=DAG2YtWcHh8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2f57ae08d7" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-green-500">
                         <div class="flex items-center mb-3">
                             <i data-lucide="thermometer" class="w-6 h-6 ml-3 text-green-400"></i>
                             <h3 class="text-xl font-semibold text-white">Libre 2 Plus</h3>
@@ -451,7 +519,7 @@
 
         </section>
 
-        <!-- קטע 2: כלי בינה מלאכותית שימושיים (נשאר פתוח כברירת מחדל) -->
+        <!-- קטע 2: קישורים לכלי AI מומלצים -->
         <section class="p-6 rounded-3xl bg-gray-900/40 border border-indigo-700/50 backdrop-blur-md shadow-2xl shadow-indigo-900/20">
             <h2 class="text-3xl font-bold mb-8 pb-3 border-b border-indigo-600 flex items-center section-title">
                 <i data-lucide="tool" class="w-7 h-7 ml-3 text-cyan-400"></i>
