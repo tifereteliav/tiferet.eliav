@@ -522,6 +522,67 @@
                     </a>
                 </div>
             </div>
+            
+            <!-- 7. קטגוריה: כנסים (חדש) -->
+            <div class="mb-6">
+                <div id="conferences_header" onclick="toggleSection('conferences_content', 'conferences_icon')" 
+                     class="flex justify-between items-center cursor-pointer p-3 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-b border-gray-700/50 hover:border-indigo-500 transition-colors duration-200">
+                    <h3 class="text-2xl font-semibold text-indigo-300 flex items-center">
+                        <i data-lucide="users" class="w-6 h-6 ml-3 text-fuchsia-300"></i>
+                        כנסים
+                    </h3>
+                    <i id="conferences_icon" data-lucide="chevron-down" class="w-6 h-6 text-indigo-400 rotate-0"></i>
+                </div>
+
+                <!-- תוכן קטגוריה: מוסתר כברירת מחדל -->
+                <div id="conferences_content" class="pt-4 hidden space-y-4">
+                    
+                    <!-- קטגוריית משנה 1: כנס הסוכרת בירושלים (ניתן ללחיצה) -->
+                    <div class="bg-gray-800/30 p-4 rounded-xl border border-fuchsia-700/50 shadow-inner shadow-fuchsia-900/10">
+                        <h4 id="conf_challenge_header" onclick="toggleSection('conf_challenge_content', 'conf_challenge_icon')" 
+                            class="text-xl font-bold text-fuchsia-300 mb-2 pb-2 border-b border-fuchsia-700 flex items-center justify-between cursor-pointer">
+                            <span class="flex items-center">
+                                <i data-lucide="calendar-check" class="w-5 h-5 ml-2 text-fuchsia-400"></i>
+                                סוכרת במציאות משתנה, אתגרים פריצות דרך וחדשנות
+                            </span>
+                            <i id="conf_challenge_icon" data-lucide="chevron-down" class="w-5 h-5 text-fuchsia-400 rotate-0"></i>
+                        </h4>
+                        <!-- כיתוב הוסף כאן -->
+                        <p class="text-sm text-fuchsia-400 mb-4">כנס הסוכרת לצוותים רפואיים בירושלים 10.11.25</p>
+                        
+                        <!-- Internal Grid for Conference challenge items (Hidden by default) -->
+                        <div id="conf_challenge_content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 hidden">
+                            <!-- כרטיס 1: אתר האתגר האינטראקטיבי של הכנס -->
+                            <a href="https://diabetes-challenge.vercel.app" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-fuchsia-500">
+                                <div class="flex items-center mb-3">
+                                    <i data-lucide="monitor" class="w-6 h-6 ml-3 text-fuchsia-400"></i>
+                                    <h3 class="text-xl font-semibold text-white">אתר האתגר האינטראקטיבי של הכנס</h3>
+                                </div>
+                                <p class="text-sm text-indigo-300">כנס הסוכרת בירושלים 10.11.25</p>
+                            </a>
+
+                            <!-- כרטיס 2: Save the date -->
+                            <a href="https://www.canva.com/design/DAGw7IBCdCo/YNJbky7KxX6wrWEBQnAp_Q/watch?utm_content=DAGw7IBCdCo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd1f5b6ed09" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-pink-500">
+                                <div class="flex items-center mb-3">
+                                    <i data-lucide="bell" class="w-6 h-6 ml-3 text-pink-400"></i>
+                                    <h3 class="text-xl font-semibold text-white">Save the date כנס הסוכרת בירושלים 10.11.25</h3>
+                                </div>
+                                <p class="text-sm text-indigo-300">הכרזה רשמית ופרסום האירוע.</p>
+                            </a>
+                            
+                             <!-- כרטיס 3 (חדש): תוכנית הכנס -->
+                            <a href="https://www.canva.com/design/DAG23mXFaDA/XE_2_e39zjc6y3BD32Iymw/watch?utm_content=DAG23mXFaDA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9eb11cb173" target="_blank" class="card block p-5 rounded-xl bg-gray-800/50 hover:bg-gray-700/60 border-2 border-transparent hover:border-green-500">
+                                <div class="flex items-center mb-3">
+                                    <i data-lucide="list-checks" class="w-6 h-6 ml-3 text-green-400"></i>
+                                    <h3 class="text-xl font-semibold text-white">תוכנית הכנס</h3>
+                                </div>
+                                <p class="text-sm text-indigo-300">מצגת מפורטת של סדר היום והמרצים.</p>
+                            </a>
+                        </div>
+                    </div> <!-- סוף קטגוריית משנה: כנס הסוכרת בירושלים -->
+
+                </div>
+            </div>
 
         </section>
 
